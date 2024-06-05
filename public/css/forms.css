@@ -29,9 +29,11 @@ body {
     background-color: white;
     border: 5px solid #546A6A;
     border-radius: 20px;
-    
-    height: 700px;
+    position: relative;
+
     width: 450px;
+    height: 50vh;
+    min-height: 700px;
 
     display: flex;
     flex-direction: column;
@@ -46,13 +48,15 @@ body {
 
 .start-container > .footer {
     width: 80%;
-    margin-top: 10dvh;
+    position: absolute; 
+    bottom: 0;
 }
 
 .start-container h3 {
     font-size: 22px;
     color: #6A8988;
-    margin: 5vh                               
+    margin: 5vh;
+    text-align: center;                                 
 }
 
 .start-container button {
@@ -113,10 +117,61 @@ body {
     font-size: 15px;
     color: rgba(106, 137, 136, 0.7);
     
-    padding-left: 2px;
+    padding-left: 0.25vw;
 }
 
 .password-hidden {
     background: url("../img/password_hidden.svg") no-repeat right;
     background-size: 30px;
 }
+
+.cell {
+    width: 100%;
+  }
+
+@media screen and (max-device-width: 480px){
+
+    .start-container {
+        background-color: white;
+        border: 0px;
+        border-radius: 0px;
+    
+        height: 100%;
+        width: 100%;
+    }
+
+    .start-container button, .start-container input {
+        height: 100px;
+        width: 70vw;
+        font-size: 40px;
+    }
+
+    .start-container button {
+        border-radius: 15px;
+    }
+
+    .start-container h3, .start-container p {
+        overflow-wrap: break-word;    
+    }
+
+    .start-container h3 {
+        font-size: 50px;                         
+    }
+
+    .start-container p {
+        font-size: 40px;
+    }
+
+    ::placeholder {
+        font-size: 36px;
+    }
+
+    .start-container > .align-right{
+        margin-right: calc((100vw - 70vw) / 2);
+        align-self: flex-end;
+    }
+
+    .password-hidden {
+        background-size: 70px;
+    }
+  }
