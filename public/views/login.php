@@ -14,14 +14,21 @@
             <h3 style="margin-bottom: -1vh;" class="default-font">Welcome back!</h3>
             <h3 class="default-font">Please login to continue</h3>
             
-            <form class="flex-center">
-                <input class="default-font" type="email" name="email" placeholder="Email address">
-                <input class="default-font password-hidden" type="password" name="password" placeholder="Password">
-            </form>
-            
-            <p class="default-font align-right"><a href="password">Forgot password?</a></p>
+            <form class="flex-center" action="login" method="POST">
+                
+                <?php
+                    if(isset($messages)){
+                        foreach($messages as $message) {
+                            echo "<p class='warning-box default-font'>".$message."</p>";
+                        }
+                    }
+                ?>
 
-            <form>
+                <input class="default-font" type="email" name="email" placeholder="Email address" required>
+                <input class="default-font password-hidden" type="password" name="password" placeholder="Password" required>
+            
+                <p class="default-font"><a href="password">Forgot password?</a></p>
+
                 <button type="submit" class="filled-button default-font last-button">LOGIN</button>
             </form>
             <p>Not a member? <a href="register">Create an account</a></p>

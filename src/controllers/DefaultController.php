@@ -28,4 +28,9 @@ class DefaultController extends AppController {
     {
         $this->render('register');
     }
+
+    public function events()
+    {
+        $this->render('events');
+    }
 }
