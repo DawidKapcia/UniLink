@@ -17,6 +17,15 @@ body {
     color: #6A8988;
 }
 
+.error-header {
+    font-weight: 600;
+    font-size: 15vw
+}
+
+.error-message {
+    font-size: 4vw
+}
+
 .start-background {
     height: 100vh;
     width: 100vw;
@@ -72,6 +81,8 @@ body {
 
     font-weight: 600;
     font-size: 17px;
+
+    cursor: pointer;
 }
 
 .start-container > .align-right{
@@ -173,5 +184,14 @@ body {
 
     .password-hidden {
         background-size: 70px;
+    }
+
+    .error-header {
+        font-weight: 600;
+        font-size: 15vh
+    }
+    
+    .error-message {
+        font-size: 4vh
     }
   }
