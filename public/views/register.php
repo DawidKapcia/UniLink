@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/forms.css"/>
+    <link rel="stylesheet" type="text/css" href="public/css/styles.css"/>
     <title>UniLink | Create a new account</title>
     <link rel="icon" type="image/x-icon" href="public/img/icon.svg">
 </head>

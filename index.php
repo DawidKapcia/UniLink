@@ -9,6 +9,7 @@ Router::get('', 'DefaultController');
 
 Router::get('error404', 'DefaultController');
 Router::get('events', 'DefaultController');
+Router::get('add_event', 'DefaultController');
 
 Router::get('login', 'SecurityController');
 Router::get('password', 'SecurityController');

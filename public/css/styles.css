@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.flex-row-center {
+    display: flex;
+    align-items: center;
+
+    height: 100vh;
+    width: 100wh;
+
+}
+
+.flex-row-center-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+    width: 100wh;
+
+}
+
+.flex-row-left-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-left-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.flex-left-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.default-font {
+    font-family: 'NATS';
+    font-style: normal;
+    font-weight: 200;
+    line-height: 0px;
+    color: #6A8988;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.filled-button {
+    color: white;
+    background-color: #6A8988;
+}
+
+.filled-button:hover {
+    background-color: #566d6c;
+}
+
+.empty-button {
+    background-color: white;
+}
+
+.empty-button:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+::placeholder {
+    font-size: 15px;
+    color: rgba(106, 137, 136, 0.7);
+    
+    padding-left: 0.25vw;
+}
