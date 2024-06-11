@@ -27,4 +27,14 @@ class User {
     {
         return $this->password;
     }
+
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    public function getLastname()
+    {
+        return $this->lastname;
+    }  
 }
