@@ -22,7 +22,7 @@ class SecurityController extends AppController {
         }
 
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
 
         $user = $this->userRepository->getUser($email);
 
@@ -38,24 +38,32 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
-        return $this->render('events');
+        $this->userRepository->createSession($user);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/events");
     }
 
     public function register()
     {
-        $user = new User('admin@unilink.pl', 'admin', 'Johnny', 'Snow');
 
         if (!$this->isPost()) {
             return $this->render('register');
         }
 
         $email = $_POST['email'];
-
-        if ($user->getEmail() === $email) {
+        $firstname = $_POST['first-name'];
+        $lastname = $_POST['last-name'];
+        $password = $_POST['password'];
+        
+        if (!is_null($this->userRepository->getUser($email))) {
             return $this->render('register', ['messages' => ['Account already exists!']]);
         }
+        
+        $user = new User($email, md5($password), $firstname, $lastname);
+        $this->userRepository->addUser($user);
 
-        return $this->render('events');
+        return $this->render('login');
     }
 
     public function password()
@@ -64,6 +72,7 @@ class SecurityController extends AppController {
             return $this->render('password');
         }
 
+        $email = $_POST['email'];
         $new_password = $_POST['new-password'];
         $repeated_password = $_POST['repeated-password'];
 
@@ -71,6 +80,27 @@ class SecurityController extends AppController {
             return $this->render('password', ['messages' => ['Passwords do not match!']]); 
         }
 
+        $user = $this->userRepository->getUser($email);
+        $this->userRepository->changePassword($user, md5($new_password));
+        
         return $this->render('login');
+    }
+
+    public function logout() {
+        
+        session_unset();
+        session_destroy();
+    
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}");
+    }
+
+    public function guest() {
+
+        $user = $this->userRepository->getUser('guest@unilink.com');
+        $this->userRepository->createSession($user);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/events");
     }
 }

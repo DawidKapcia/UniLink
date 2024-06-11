@@ -27,11 +27,18 @@
     margin: 1vh;
 }
 
-.header > .logout {
-    width: 1.5vw;
+.header > a > .logout {
+    
+    height: 40px;
+    width: 40px;
+    
     margin: 1vh;
+    border: 0px;
 
-    justify-content: space-between;
+    background-image: url("../img/logout.svg");
+    background-color: white;
+    
+    cursor: pointer;
 }
 
 .header > form {

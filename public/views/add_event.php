@@ -18,7 +18,7 @@
                 <input placeholder="Search an event...">
             </form>
 
-            <img class="logout" src="public/img/logout.svg">
+            <a href="logout"><button type="submit" class="logout"></button></a>
         </div>
 
         <div class="lower-container">
@@ -26,12 +26,18 @@
             <div class="flex-left-center nav-bar">
                 <img class="profile-photo" src="public/img/profile-photo.svg">
 
-                <h3 class="default-font bold">Jan Kowalski</h3>
-                <p class="default-font">Politechnika Krakowska</p>
+                <h3 class="default-font bold"><?=$_SESSION['firstname'].' '.$_SESSION['lastname']; ?></h3>
+                <p class="default-font"><?=$_SESSION['university']; ?></p>
 
                 <form class="flex-center">
-                    <button type="submit" class="filled-button default-font" formaction="add_event">ADD EVENT</button>
-                    <button type="submit" class="filled-button default-font" formaction="events">YOUR EVENTS</button>
+
+                    <?php
+                    if ($_SESSION['role'] !== 3) {
+                        echo '<button type="submit" class="filled-button default-font" formaction="add_event">ADD EVENT</button>';
+                        echo '<button type="submit" class="filled-button default-font" formaction="events">YOUR EVENTS</button>';
+                    }
+                    ?>
+
                     <button type="submit" class="filled-button default-font" formaction="events">HOMEPAGE</button>
                 </form>
             </div>
@@ -50,6 +56,7 @@
 
                     <input class="default-font" type="text" name="title" placeholder="Name" required>
                     <input class="default-font" style="line-height: 10px" type="date" name="date" required>
+                    <input class="default-font" type="number" name="max_slots" placeholder="Available slots" min=1 required>
                     <input class="default-font" type="text" name="address" placeholder="Address" required>
                     <input class="default-font" type="text" name="city" placeholder="City" required>
                     <input class="default-font" type="text" name="zip_code" placeholder="Zip code" required>

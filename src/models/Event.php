@@ -3,16 +3,18 @@
 class Event {
     private $title;
     private $date;
+    private $max_slots;
     private $address;
     private $city;
     private $zip_code;
     private $description;
     private $image;
 
-    public function __construct($title, $date, $address, $city, $zip_code, $description, $image)
+    public function __construct($title, $date, $max_slots, $address, $city, $zip_code, $description, $image)
     {
         $this->title = $title;
         $this->date = $date;
+        $this->max_slots = $max_slots;
         $this->address = $address;
         $this->city = $city;
         $this->zip_code = $zip_code;
@@ -38,6 +40,16 @@ class Event {
     public function setDate($date)
     {
         $this->date = $date;
+    }
+
+    public function getSlots()
+    {
+        return $this->max_slots;
+    }
+
+    public function setSlots($max_slots)
+    {
+        $this->max_slots = $max_slots;
     }
 
     public function getAddress()

@@ -18,7 +18,7 @@
                 <button type="submit" class="filled-button default-font" formaction="register">SIGN UP</button>
                 <button type="submit" class="empty-button default-font" formaction="login">LOGIN</button>
                 <p class="default-font">OR</p>
-                <button type="submit" class="empty-button default-font" formaction="events">TRY IT AS A GUEST</button>
+                <button type="submit" class="empty-button default-font" formaction="guest">TRY IT AS A GUEST</button>
             </form>
 
             <img class="footer" src="public/img/footer.svg">
