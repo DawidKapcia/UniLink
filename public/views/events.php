@@ -43,123 +43,15 @@
                 <div class="events">
 
                     <div>
-                        <img src="public/img/uploads/1.jpg">
+                        <img src="public/uploads/<?= $event->getImage(); ?>">
                         <div>
-                            <h3 class="default-font bold" style="color: black;">NBA match</h3>
-                            <p class="default-font" style="color: black;">AGH UST, ul. Szkolna 24, Kraków 31-636</p>
+                            <h3 class="default-font bold" style="color: black;"><?= $event->getTitle(); ?></h3>
+                            <p class="default-font" style="color: black;"><?= $event->getAddress().", ".$event->getZip()." ".$event->getCity(); ?></p>
                             <br>
 
                             <div class="info-section">
-                                <i class="fa-solid fa-calendar-days" style="color: black;">28.01.2021</i>
+                                <i class="fa-solid fa-calendar-days" style="color: black;"><?= $event->getDate(); ?></i>
                                 <i class="fa-solid fa-user" style="color: black;">4/5</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src="public/img/uploads/1.jpg">
-                        <div>
-                            <h3>Title</h3>
-                            
-                            <div class="social-section">
-                                <i class="fas fa-heart"> 600</i>
-                                <i class="fas fa-minus-square"> 121</i>
                             </div>
                         </div>
                     </div>

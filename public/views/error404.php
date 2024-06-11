@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="public/css/styles.css"/>
     <link rel="stylesheet" type="text/css" href="public/css/forms.css"/>
     <title>Page not found</title>
     <link rel="icon" type="image/x-icon" href="public/img/icon.svg">

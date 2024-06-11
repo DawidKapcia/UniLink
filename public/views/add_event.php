@@ -38,16 +38,25 @@
             
             <div class="events-container flex-center">
 
-                <form class="flex-center">
-                    <input class="default-font" type="text" name="name" placeholder="Name" required>
-                    <input class="default-font" style="line-height: 10px" type="date" name="date" required>
-                    <input class="default-font" type="text" name="street" placeholder="Address" required>
-                    <input class="default-font" type="text" name="city" placeholder="City" required>
-                    <input class="default-font" type="text" name="app" placeholder="Zip code" required>
-                    <input class="default-font" type="text" name="description" placeholder="Description" required>
-                    <input class="default-font" style="border: 0px; box-shadow: none" type="file" name="file"/><br/>
+                <form class="flex-center" action="add_event" method="POST" ENCTYPE="multipart/form-data">
 
-                    <button type="submit" class="filled-button default-font last-button" formaction="events">CONFIRM</button>
+                    <?php
+                        if(isset($messages)){
+                            foreach($messages as $message) {
+                                echo "<p class='warning-box default-font'>".$message."</p>";
+                            }
+                        }
+                    ?>
+
+                    <input class="default-font" type="text" name="title" placeholder="Name" required>
+                    <input class="default-font" style="line-height: 10px" type="date" name="date" required>
+                    <input class="default-font" type="text" name="address" placeholder="Address" required>
+                    <input class="default-font" type="text" name="city" placeholder="City" required>
+                    <input class="default-font" type="text" name="zip_code" placeholder="Zip code" required>
+                    <input class="default-font" type="text" name="description" placeholder="Description" required>
+                    <input class="default-font" style="border: 0px; box-shadow: none" type="file" name="file" required>
+                    
+                    <br><button type="submit" class="filled-button default-font last-button">CONFIRM</button>
                 </form>
             </div>
         </div>
