@@ -54,13 +54,14 @@ class SecurityController extends AppController {
         $email = $_POST['email'];
         $firstname = $_POST['first-name'];
         $lastname = $_POST['last-name'];
+        $university = $_POST['university'];
         $password = $_POST['password'];
         
         if (!is_null($this->userRepository->getUser($email))) {
             return $this->render('register', ['messages' => ['Account already exists!']]);
         }
         
-        $user = new User($email, md5($password), $firstname, $lastname);
+        $user = new User($email, md5($password), $firstname, $lastname, $university);
         $this->userRepository->addUser($user);
 
         return $this->render('login');

@@ -61,14 +61,14 @@
     letter-spacing: 0.72px;
 }
 
-.header > form > input {
+.header > input {
 
     box-sizing: border-box;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border: 1px solid #6A8988;
     border-radius: 25px;
 
-    width: 100%;
+    width: 30%;
     text-align: center;
     letter-spacing: 0.72px;
     
@@ -96,7 +96,8 @@
 }
 
 .nav-bar > form > button,
-.events-container > form > button {
+.events-container > form > button,
+.events-container > .flex-center > form > button {
 
     height: 35px;
     width: 9vw;
@@ -111,6 +112,15 @@
     font-size: 17px;
 
     cursor: pointer;
+}
+
+.events-container > .flex-center > form > button:hover {
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 3px 12px 0px;
+}
+
+.events-container > .flex-center > form > button {
+    box-shadow: 0px;
+    background-color: white;
 }
 
 .events-container > form > button {
@@ -133,10 +143,26 @@
     overflow: auto;
 }
 
-.events > div {
+.events > a:link { 
+    text-decoration: none; 
+} 
+
+.events > a:visited { 
+    text-decoration: none; 
+} 
+
+.events > a:hover { 
+    text-decoration: none; 
+} 
+
+.events > a:active { 
+    text-decoration: none; 
+}
+
+.events > a > div {
     border: 1px solid gray;
     border-radius: 1em 1em 0 0;
-    height: 300px;
+    height: 250px;
 
     display: flex;
     flex-direction: column;
@@ -145,11 +171,11 @@
     cursor: pointer;
 }
 
-.events > div:hover {
+.events > a > div:hover {
     box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
 }
 
-.events > div > img {
+.events > a > div > img {
     height: 50%;
     width: 100%;
     object-fit: cover;
@@ -157,7 +183,7 @@
 }
 
 
-.events > div > div {
+.events > a > div > div {
     height: 50%;
     width: 100%;
     color: black;
@@ -165,6 +191,45 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+}
+
+.events > a > div > div > .enroled {
+    background-color: rgb(248,215,218);
+    border: 1px solid #942129;
+    color: rgb(148,33,41);
+    padding: 1.5vh;
+    margin: 0px;
+}
+
+.events > a > div > div > form > button {
+    height: 15px;
+    width: 4vw;
+    
+    margin: 1vh;
+
+    box-shadow: 0px;
+    background-color: white;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.events > a > div > div > form > button:hover {
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+}
+
+.events-container > .flex-center > form > .apply-button {
+    border: 1px solid #6A8988;
+    color: #6A8988;
+}
+
+.events-container > .flex-center > form > .del-button {
+    border: 1px solid rgb(194, 37, 37);
+    color: rgb(194, 37, 37);
 }
 
 .info-section {
@@ -179,4 +244,17 @@
 .info-section > i {
     display: inline-block;
     margin-right: 1em;
+}
+
+.events-container > .flex-center > p {
+    color: black;
+}
+
+.events-container > .flex-center > img {
+    height: auto;
+    width: 25%;
+    object-fit: cover;
+    border: 1px solid #6A8988;
+    padding: 1vh;
+    margin: 2vh;
 }

@@ -27,6 +27,7 @@
                 <input class="default-font" type="email" name="email" placeholder="Email address" required>
                 <input class="default-font" type="text" name="first-name" placeholder="First name" required>
                 <input class="default-font" type="text" name="last-name" placeholder="Last name" required>
+                <input class="default-font" type="text" name="university" placeholder="University" required>
                 <input class="default-font password-hidden" type="password" name="password" placeholder="Password" required>
 
                 <button type="submit" class="filled-button default-font last-button">SIGN UP</button>

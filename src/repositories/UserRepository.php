@@ -26,8 +26,7 @@ class UserRepository extends Repository
             $user['firstname'],
             $user['lastname'],
             $user['university'],
-            $user['role'],
-            $user['image']
+            $user['role']
         );
     }
   
@@ -43,12 +42,13 @@ class UserRepository extends Repository
         ]);
 
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO public.users (firstname, lastname, detail)
-            VALUES (?, ?, ?)');
+            INSERT INTO public.users (firstname, lastname, university, detail)
+            VALUES (?, ?, ?, ?)');
 
         $stmt->execute([
             $user->getFirstname(),
             $user->getLastname(),
+            $user->getUniversity(),
             $this->getUserId($user)
         ]);
     }
@@ -66,7 +66,7 @@ class UserRepository extends Repository
     public function getUserId(User $user): int
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.details WHERE email = :email AND password = :password');
+        SELECT * FROM public.details WHERE email = :email AND password = :password');
 
         $stmt->bindParam(':email', $user->getEmail(), PDO::PARAM_STR);
         $stmt->bindParam(':password', $user->getPassword(), PDO::PARAM_STR);
@@ -82,6 +82,5 @@ class UserRepository extends Repository
         $_SESSION['lastname'] = $user->getLastname();
         $_SESSION['university'] = $user->getUniversity();
         $_SESSION['role'] = $user->getRole();
-        $_SESSION['image'] = $user->getImage();
     }
 }

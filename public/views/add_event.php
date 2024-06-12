@@ -13,19 +13,14 @@
 
         <div class="flex-row-left-center header">
             <img class="logo" src="public/img/logo.svg">
-
-            <form>
-                <input placeholder="Search an event...">
-            </form>
-
             <a href="logout"><button type="submit" class="logout"></button></a>
         </div>
 
         <div class="lower-container">
 
             <div class="flex-left-center nav-bar">
-                <img class="profile-photo" src="public/img/profile-photo.svg">
 
+                <img class="profile-photo" src="public/img/profile-photo.svg">
                 <h3 class="default-font bold"><?=$_SESSION['firstname'].' '.$_SESSION['lastname']; ?></h3>
                 <p class="default-font"><?=$_SESSION['university']; ?></p>
 
@@ -56,6 +51,7 @@
 
                     <input class="default-font" type="text" name="title" placeholder="Name" required>
                     <input class="default-font" style="line-height: 10px" type="date" name="date" required>
+                    <input class="default-font" type="text" name="hour" placeholder="Hour" required>
                     <input class="default-font" type="number" name="max_slots" placeholder="Available slots" min=1 required>
                     <input class="default-font" type="text" name="address" placeholder="Address" required>
                     <input class="default-font" type="text" name="city" placeholder="City" required>

@@ -7,17 +7,14 @@ class User {
     private $lastname;
     private $university;
     private $role;
-    private $image;
 
     public function __construct(
         string $email,
         string $password,
         string $firstname,
         string $lastname,
-
-        $university = "",
-        $role = 2,
-        $image = ""
+        string $university,
+        $role = 2
     ) {
         $this->email = $email;
         $this->password = $password;
@@ -25,7 +22,6 @@ class User {
         $this->lastname = $lastname;
         $this->university = $university;
         $this->role = $role;
-        $this->image = $image;
     }
 
     public function getEmail(): string 
@@ -81,15 +77,5 @@ class User {
     public function getRole()
     {
         return $this->role;
-    }
-
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image) 
-    {
-        $this->image = $image;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
 class Event {
+    private $id;
     private $title;
     private $date;
+    private $hour;
     private $max_slots;
     private $address;
     private $city;
@@ -10,16 +12,24 @@ class Event {
     private $description;
     private $image;
 
-    public function __construct($title, $date, $max_slots, $address, $city, $zip_code, $description, $image)
+    public function __construct($title, $date, $hour, $max_slots, $address, $city, $zip_code, $description, $image, $enroled = null, $id = null)
     {
+        $this->id = $id;
         $this->title = $title;
         $this->date = $date;
+        $this->hour = $hour;
         $this->max_slots = $max_slots;
+        $this->enroled = $enroled;
         $this->address = $address;
         $this->city = $city;
         $this->zip_code = $zip_code;
         $this->description = $description;
         $this->image = $image;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getTitle()
@@ -40,6 +50,16 @@ class Event {
     public function setDate($date)
     {
         $this->date = $date;
+    }
+
+    public function getHour()
+    {
+        return $this->hour;
+    }
+
+    public function setHour($hour)
+    {
+        $this->hour = $hour;
     }
 
     public function getSlots()
@@ -101,4 +121,9 @@ class Event {
     {
         $this->image = $image;
     }
+
+    public function getEnroled()
+    {
+        return $this->enroled;
+    } 
 }

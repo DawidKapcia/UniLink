@@ -13,14 +13,17 @@ Router::get('password', 'SecurityController');
 Router::get('register', 'SecurityController');
 Router::get('error404', 'DefaultController');
 Router::get('logout', 'SecurityController');
+Router::post('search', 'EventsController');
 
 if (isset($_SESSION['email'])) {
 
     if ($_SESSION['role'] !== 3) {
         Router::get('add_event', 'EventsController');
+        Router::get('your_events', 'EventsController');
     }
 
-    Router::get('events', 'DefaultController');
+    Router::post('event_details', 'EventsController');
+    Router::get('events', 'EventsController');
 }
 
 Router::run($path);

@@ -6,7 +6,7 @@ require_once __DIR__ . '/../models/Event.php';
 class EventRepository extends Repository
 {
 
-    public function getProject(int $id): ?Project
+    public function getEvent(int $id): ?Event
     {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.events WHERE id = :id');
@@ -16,19 +16,22 @@ class EventRepository extends Repository
 
         $event = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($project == false) {
+        if ($event == false) {
             return null;
         }
 
         return new Event(
-            $event['title'],
+            $event['name'],
             $event['date'],
-            $event['max_slots'],
+            $event['hour'],
+            $event['maxslots'],
             $event['address'],
             $event['city'],
-            $event['zip_code'],
+            $event['zipcode'],
             $event['description'],
-            $event['image']
+            $event['image'],
+            $event['enroled'],
+            $event['id']
         );
     }
 
@@ -37,8 +40,8 @@ class EventRepository extends Repository
         $date = new DateTime();
         $stmt = $this->database->connect()->prepare('
             INSERT INTO public.events(
-            name, description, address, city, zipcode, date, maxslots, image)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?);');
+            name, description, address, city, zipcode, date, hour, maxslots, image)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);');
 
         $stmt->execute([
             $event->getTitle(),
@@ -47,6 +50,7 @@ class EventRepository extends Repository
             $event->getCity(),
             $event->getZip(),
             $event->getDate(),
+            $event->getHour(),
             $event->getSlots(),
             $event->getImage()]);
     }
@@ -56,23 +60,52 @@ class EventRepository extends Repository
         $result = [];
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.events;');
+            SELECT * FROM public.events ORDER BY id;');
 
         $stmt->execute();
         $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($projects as $project) {
+        foreach ($events as $event) {
             
             $result[] = new Event(
-                $event['title'],
+                $event['name'],
                 $event['date'],
-                $event['max_slots'],
+                $event['hour'],
+                $event['maxslots'],
                 $event['address'],
                 $event['city'],
-                $event['zip_code'],
+                $event['zipcode'],
                 $event['description'],
-                $event['image']
+                $event['image'],
+                $event['enroled'],
+                $event['id']
             );
+        }
+
+        return $result;
+    }
+
+    public function getYourEvents(string $email): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT id_event FROM public.attendance a 
+            INNER JOIN public.users u ON a.id_user = u.id 
+            INNER JOIN public.details d ON u.detail = d.id
+            WHERE d.email = :email');
+
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $event_ids = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (empty($event_ids)) {
+            return $result;
+        }
+
+        foreach ($event_ids as $id) {
+            $result[] = $this->getEvent($id);
         }
 
         return $result;
@@ -83,8 +116,8 @@ class EventRepository extends Repository
         $searchString = '%' . strtolower($searchString) . '%';
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.events WHERE LOWER(title) LIKE :search OR LOWER(description) LIKE :search
-        ');
+            SELECT * FROM public.events WHERE LOWER(name) LIKE :search OR LOWER(description) LIKE :search ORDER BY id');
+
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();
 
