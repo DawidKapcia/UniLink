@@ -29,8 +29,8 @@
 
 .header > a > .logout {
     
-    height: 40px;
-    width: 40px;
+    height: 2vw;
+    width: 2vw;
     
     margin: 1vh;
     border: 0px;
@@ -47,7 +47,7 @@
 }
 
 .events-container > form > input {
-    height: 45px;
+    height: 35px;
     width: 20vw;
 
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -56,8 +56,12 @@
 
     color: black;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.5vh;
     letter-spacing: 0.72px;
+}
+
+.events-container > form > .no-valid {
+    border: 1px solid red;
 }
 
 .events-container > form {

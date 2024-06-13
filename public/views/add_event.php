@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/styles.css"/>
     <title>UniLink | Add new event</title>
     <link rel="icon" type="image/x-icon" href="public/img/icon.svg">
+    <script type="text/javascript" src="./public/js/events.js" defer></script>
 </head>
 
 <body>
@@ -49,14 +50,14 @@
                         }
                     ?>
 
-                    <input class="default-font" type="text" name="title" placeholder="Name" required>
+                    <input class="default-font" type="text" name="title" placeholder="Name" maxlength="30" required>
                     <input class="default-font" style="line-height: 10px" type="date" name="date" required>
-                    <input class="default-font" type="text" name="hour" placeholder="Hour" required>
+                    <input class="default-font" type="text" name="hour" placeholder="Hour" maxlength="5" required>
                     <input class="default-font" type="number" name="max_slots" placeholder="Available slots" min=1 required>
-                    <input class="default-font" type="text" name="address" placeholder="Address" required>
-                    <input class="default-font" type="text" name="city" placeholder="City" required>
-                    <input class="default-font" type="text" name="zip_code" placeholder="Zip code" required>
-                    <input class="default-font" type="text" name="description" placeholder="Description" required>
+                    <input class="default-font" type="text" name="address" placeholder="Address" maxlength="250" required>
+                    <input class="default-font" type="text" name="city" placeholder="City" maxlength="30" required>
+                    <input class="default-font" type="text" name="zip_code" placeholder="Zip code" maxlength="10" required>
+                    <input class="default-font" type="text" name="description" placeholder="Description" maxlength="250" required>
                     <input class="default-font" style="border: 0px; box-shadow: none" type="file" name="file" required>
                     
                     <br><button type="submit" class="filled-button default-font last-button">CONFIRM</button>

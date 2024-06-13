@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/styles.css"/>
     <title>UniLink | Create a new account</title>
     <link rel="icon" type="image/x-icon" href="public/img/icon.svg">
+    <script type="text/javascript" src="./public/js/register.js" defer></script>
 </head>
 
 <body>

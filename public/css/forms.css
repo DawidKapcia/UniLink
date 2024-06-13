@@ -32,18 +32,18 @@
 }
 
 .start-container > .logo {
-    width: 70%;
+    width: 60%;
     margin-top: 1vh;
 }
 
 .start-container > .footer {
-    width: 80%;
+    width: 70%;
     position: absolute; 
     bottom: 0;
 }
 
 .start-container h3 {
-    font-size: 22px;
+    font-size: 2.5vh;
     color: #6A8988;
     margin: 5vh;
     text-align: center;                                 
@@ -51,7 +51,7 @@
 
 .start-container button {
 
-    height: 45px;
+    height: 4.5vh;
     width: 300px;
     
     margin: 1vh;
@@ -61,7 +61,7 @@
     border-radius: 8px;
 
     font-weight: 600;
-    font-size: 17px;
+    font-size: 2vh;
 
     cursor: pointer;
 }
@@ -71,7 +71,7 @@
 }
 
 .start-container input {
-    height: 45px;
+    height: 4.5vh;
     width: 300px;
 
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -80,12 +80,20 @@
 
     color: black;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.5vh;
     letter-spacing: 0.72px;
+}
+
+form > .no-valid {
+    border: 1px solid red;
 }
 
 .cell {
     width: 100%;
+}
+
+.start-container p {
+    font-size: 1.7vh;
 }
 
 @media screen and (max-device-width: 480px){
