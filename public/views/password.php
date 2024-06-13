@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/styles.css"/>
     <title>UniLink | Forgot password?</title>
     <link rel="icon" type="image/x-icon" href="public/img/icon.svg">
+    <script type="text/javascript" src="./public/js/password.js" defer></script>
 </head>
 
 <body>

@@ -1,19 +1,16 @@
 const form = document.querySelector("form");
 const submit = form.querySelector('button[type="submit"]');
 
-const email = form.querySelector('input[name="email"]');
-const firstname = form.querySelector('input[name="first-name"]');
-const lastname = form.querySelector('input[name="last-name"]');
-const university = form.querySelector('input[name="university"]');
-const password = form.querySelector('input[name="password"]');
-
-
-function isStudentEmail(email) {
-    return /\S+@(?:student\.\S+|\S+\.edu|\S+\.ac)\b/.test(email);
-}
+const email = form.querySelector('input[name="email"]');;
+const password = form.querySelector('input[name="new-password"]');
+const rep_password = form.querySelector('input[name="repeated-password"]');
 
 function isPassword(password) {
     return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/.test(password);
+}
+
+function arePasswordsSame(password, confirmedPassword) {
+    return password === confirmedPassword;
 }
 
 function markValidation(element, condition, message, parametersafter) {
@@ -54,13 +51,12 @@ function markValidation(element, condition, message, parametersafter) {
     }
 }
 
-function validateEmail() {
-    setTimeout(function () {markValidation(email, isStudentEmail(email.value), 'Use your student email!', [firstname, lastname, university, password, submit]);}, 1000);
-}
-
 function validatePassword() {
-    setTimeout(function () {const condition = isPassword(password.value); markValidation(password, condition, 'Password too weak!', [submit]);}, 10);
+    setTimeout(function () {const condition = isPassword(password.value); markValidation(password, condition, 'Password too weak!', [rep_password, submit]);}, 500);
 }
 
-email.addEventListener('keyup', validateEmail);
+function validatePasswords() {
+    setTimeout(function () {const condition = arePasswordsSame(password.value, rep_password.value); markValidation(password, condition, 'Passwords are not the same!', [submit]);}, 100);
+}
 password.addEventListener('keyup', validatePassword);
+rep_password.addEventListener('keyup', validatePasswords);

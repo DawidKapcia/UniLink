@@ -4,7 +4,7 @@ const submit = form.querySelector('button[type="submit"]');
 const hour = form.querySelector('input[name="hour"]');
 
 function isHour(hour) {
-    return /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(hour);
+    return /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(hour);
 }
 
 function markValidation(element, condition, message, parametersafter) {
