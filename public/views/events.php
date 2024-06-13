@@ -34,12 +34,12 @@
 
                     <?php
                     if ($_SESSION['role'] !== 3) {
-                        echo '<button type="submit" class="filled-button default-font" formaction="add_event">ADD EVENT</button>';
-                        echo '<button type="submit" class="filled-button default-font" formaction="your_events">YOUR EVENTS</button>';
+                        echo '<button type="submit" class="filled-button default-font add-event-icon" formaction="add_event">ADD EVENT</button>';
+                        echo '<button type="submit" class="filled-button default-font your-events-icon" formaction="your_events">YOUR EVENTS</button>';
                     }
                     ?>
 
-                    <button type="submit" class="filled-button default-font" formaction="events">HOMEPAGE</button>
+                    <button type="submit" class="filled-button default-font home-icon" formaction="events">HOMEPAGE</button>
                 </form>
             </div>
             
@@ -49,19 +49,19 @@
                     <?php foreach ($events as $event):?>
                     
                     <a href="event_details?id=<?=$event->getId();?>">
-                    <div id="<?=$event->getId();?>">
-                        <img src="public/uploads/<?= $event->getImage(); ?>">
-                        <div>
-                            <h3 class="default-font bold" style="color: black;"><?= $event->getTitle(); ?></h3>
-                            <p class="default-font bold" style="color: black;"><?= $event->getAddress().", ".$event->getZip()." ".$event->getCity(); ?></p>
-                            <br>
+                        <div id="<?=$event->getId();?>">
+                            <img src="public/uploads/<?= $event->getImage(); ?>">
+                            <div>
+                                <h3 class="default-font bold" style="color: black;"><?= $event->getTitle(); ?></h3>
+                                <p class="default-font bold" style="color: black;"><?= $event->getAddress().", ".$event->getZip()." ".$event->getCity(); ?></p>
+                                <br>
 
-                            <div class="info-section">
-                                <i class="fa-solid fa-calendar-days" style="color: black;"><?= $event->getDate()." ".$event->getHour(); ?></i>
-                                <i class="fa-solid fa-user" style="color: black;"><?= $event->getEnroled()."/".$event->getSlots(); ?></i>
+                                <div class="info-section">
+                                    <i class="fa-solid fa-calendar-days" style="color: black;"><?= $event->getDate()." ".$event->getHour(); ?></i>
+                                    <i class="fa-solid fa-user" style="color: black;"><?= $event->getEnroled()."/".$event->getSlots(); ?></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                     <?php endforeach; ?>
                 </div>
@@ -72,19 +72,19 @@
 
 <template id="event-template">
     <a href="">
-    <div id="">
-        <img src="">
-        <div>
-            <h3 class="default-font bold" style="color: black;">title</h3>
-            <p class="default-font bold" style="color: black;">address, zip_code city</p>
-            <br>
+        <div id="">
+            <img src="">
+            <div>
+                <h3 class="default-font bold" style="color: black;">title</h3>
+                <p class="default-font bold" style="color: black;">address, zip_code city</p>
+                <br>
 
-            <div class="info-section">
-                <i class="fa-solid fa-calendar-days" style="color: black;">date</i>
-                <i class="fa-solid fa-user" style="color: black;">slots</i>
+                <div class="info-section">
+                    <i class="fa-solid fa-calendar-days" style="color: black;">date</i>
+                    <i class="fa-solid fa-user" style="color: black;">slots</i>
+                </div>
+                <br>
             </div>
-            <br>
         </div>
-    </div>
     </a>
 </template>

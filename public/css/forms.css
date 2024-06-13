@@ -21,9 +21,9 @@
     border-radius: 20px;
     position: relative;
 
+    min-height: max-content;
     width: 450px;
-    height: 50vh;
-    min-height: 750px;
+    height: 80vh;
 
     display: flex;
     flex-direction: column;
@@ -121,8 +121,8 @@
         font-size: 40px;
     }
 
-    ::placeholder {
-        font-size: 36px;
+    input::placeholder {
+        font-size: 32px;
     }
 
     .password-hidden {

@@ -27,13 +27,13 @@
                 <form class="flex-center">
 
                     <?php
-                    if ($_SESSION['role'] !== 3) {
-                        echo '<button type="submit" class="filled-button default-font" formaction="add_event">ADD EVENT</button>';
-                        echo '<button type="submit" class="filled-button default-font" formaction="events">YOUR EVENTS</button>';
-                    }
+                        if ($_SESSION['role'] !== 3) {
+                            echo '<button type="submit" class="filled-button default-font add-event-icon" formaction="add_event">ADD EVENT</button>';
+                            echo '<button type="submit" class="filled-button default-font your-events-icon" formaction="your_events">YOUR EVENTS</button>';
+                        }
                     ?>
 
-                    <button type="submit" class="filled-button default-font" formaction="events">HOMEPAGE</button>
+                    <button type="submit" class="filled-button default-font home-icon" formaction="events">HOMEPAGE</button>
                 </form>
             </div>
             

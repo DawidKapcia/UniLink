@@ -39,7 +39,7 @@ class SecurityController extends AppController {
         }
 
         $this->userRepository->createSession($user);
-
+ 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/events");
     }

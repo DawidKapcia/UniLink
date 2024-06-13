@@ -55,6 +55,40 @@ class EventRepository extends Repository
             $event->getImage()]);
     }
 
+    public function removeEvent(string $id)
+    {
+        $stmt = $this->database->connect()->prepare('
+        DELETE FROM public.events WHERE id = :id');
+
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+    public function removeOldEvents()
+    {
+        $stmt = $this->database->connect()->prepare("
+        DELETE FROM public.events WHERE id IN (select id from public.events WHERE TO_DATE(date, 'YYYY-MM-DD') < CURRENT_DATE)");
+        $stmt->execute();
+    }
+
+    public function attendEvent(string $id_event, string $id_user)
+    {
+        $stmt = $this->database->connect()->prepare('CALL attend(:id_event, :id_user)');
+
+        $stmt->bindParam(':id_event', $id_event, PDO::PARAM_STR);
+        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+    public function cancelAttendance(string $id_event, string $id_user)
+    {
+        $stmt = $this->database->connect()->prepare('CALL cancel(:id_event, :id_user)');
+
+        $stmt->bindParam(':id_event', $id_event, PDO::PARAM_STR);
+        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
     public function getEvents(): array
     {
         $result = [];
@@ -98,17 +132,29 @@ class EventRepository extends Repository
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
-        $event_ids = $stmt->fetch(PDO::FETCH_ASSOC);
+        $event_ids = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if (empty($event_ids)) {
             return $result;
         }
 
         foreach ($event_ids as $id) {
-            $result[] = $this->getEvent($id);
+            $result[] = $this->getEvent($id['id_event']);
         }
 
         return $result;
+    }
+
+    public function isYourEvent(string $id_event)
+    {
+        $stmt = $this->database->connect()->prepare('
+        SELECT is_your_event(:id_event, :id_user);');
+
+        $stmt->bindParam(':id_event', $id_event, PDO::PARAM_STR);
+        $stmt->bindParam(':id_user', $_SESSION['id'], PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getEventByTitle(string $searchString)

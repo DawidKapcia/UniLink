@@ -19,6 +19,9 @@ if (isset($_SESSION['email'])) {
 
     if ($_SESSION['role'] !== 3) {
         Router::get('add_event', 'EventsController');
+        Router::get('remove_event', 'EventsController');
+        Router::get('attend_event', 'EventsController');
+        Router::get('cancel_attendance', 'EventsController');
         Router::get('your_events', 'EventsController');
     }
 

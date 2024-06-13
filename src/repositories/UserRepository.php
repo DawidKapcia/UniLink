@@ -9,7 +9,7 @@ class UserRepository extends Repository
     public function getUser(string $email): ? User
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.users u INNER JOIN details d ON u.detail = d.id WHERE email = :email');
+            SELECT u.id, email, password, firstname, lastname, university, role FROM public.users u INNER JOIN details d ON u.detail = d.id WHERE email = :email');
 
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -26,7 +26,8 @@ class UserRepository extends Repository
             $user['firstname'],
             $user['lastname'],
             $user['university'],
-            $user['role']
+            $user['role'],
+            $user['id']
         );
     }
   
@@ -82,5 +83,6 @@ class UserRepository extends Repository
         $_SESSION['lastname'] = $user->getLastname();
         $_SESSION['university'] = $user->getUniversity();
         $_SESSION['role'] = $user->getRole();
+        $_SESSION['id'] = $user->getId();
     }
 }

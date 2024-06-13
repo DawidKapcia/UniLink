@@ -36,6 +36,7 @@ class EventsController extends AppController {
 
     public function events()
     {
+        $this->eventRepository->removeOldEvents();
         $events = $this->eventRepository->getEvents();
         return $this->render('events', ['events' => $events]);
     }
@@ -65,14 +66,65 @@ class EventsController extends AppController {
 
     public function event_details() {
 
+
         $id = $_GET["id"];
         $event = $this->eventRepository->getEvent($id);
+        $is_enroled = $this->eventRepository->isYourEvent($id);
 
         if (!$event) {
             return $this->render('error404');
         }
 
-        $this->render('event_details', ['event' => $event]);
+        return $this->render('event_details', ['event' => $event, 'is_enroled' => $is_enroled['is_your_event']]);
+    }
+
+    public function remove_event() 
+    {
+        $id = $_GET["id"];
+
+        if (!$this->eventRepository->getEvent($id)) {
+            return $this->render('error404');
+        }
+
+        if ($_SESSION['role'] === 1) {
+            $this->eventRepository->removeEvent($id);
+        }
+
+        return $this->events();
+    }
+
+    public function attend_event()
+    {
+        $id_event = $_GET["id"];
+        $id_user = $_SESSION["id"];
+
+        if ($_SESSION['role'] !== 3) {
+
+            $event = $this->eventRepository->getEvent($id_event);
+            $enroled = $event->getEnroled();
+            $maxslots = $event->getSlots();
+
+            if ($enroled < $maxslots) {
+                $this->eventRepository->attendEvent($id_event, $id_user);
+            }
+            else {
+                return $this->render('event_details', ['event' => $event, 'is_enroled' => null, 'messages' => ['Too many participants!']]);
+            }
+        }
+
+        return $this->events();
+    }
+
+    public function cancel_attendance()
+    {
+        $id_event = $_GET["id"];
+        $id_user = $_SESSION["id"];
+
+        if ($_SESSION['role'] !== 3) {
+            $this->eventRepository->cancelAttendance($id_event, $id_user);
+        }
+
+        return $this->events();
     }
 
     private function validate(array $file): bool

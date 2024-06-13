@@ -46,8 +46,7 @@
     height: auto;
 }
 
-.events-container > form > input,
-.events-container > form > textarea {
+.events-container > form > input {
     height: 45px;
     width: 20vw;
 
@@ -59,6 +58,10 @@
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 0.72px;
+}
+
+.events-container > form {
+    height: 100%;
 }
 
 .header > input {
@@ -80,13 +83,14 @@
     width: 15vw;
     height: 100%;
     border-right: 2px solid #6A8988;
+    font-size: 0.8vw;
 }
 
 .nav-bar > .profile-photo {
     width: 6vw;
     margin-top: 8vh;
     margin-bottom: 3vh;
-    padding: 1vh;
+    padding: 0.25vh;
     border: 2px solid #6A8988;
 }
 
@@ -109,9 +113,10 @@
     border-radius: 8px;
 
     font-weight: 600;
-    font-size: 17px;
+    overflow-wrap: break-word;
 
     cursor: pointer;
+    font-size: 1vw;
 }
 
 .events-container > .flex-center > form > button:hover {
@@ -191,6 +196,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    font-size: 0.9vw;
 }
 
 .events > a > div > div > .enroled {
@@ -233,7 +239,7 @@
 }
 
 .info-section {
-    font-size: 12px;
+    font-size: 0.7vw;
     font-style: normal;
     font-weight: 200;
     line-height: 0px;
@@ -257,4 +263,109 @@
     border: 1px solid #6A8988;
     padding: 1vh;
     margin: 2vh;
+}
+
+.events > a {
+    width: auto;
+    height: 250px;
+}
+
+@media screen and (max-device-width: 480px){
+    
+    .header > .logo {
+        width: 20vw;
+        margin: 1vh;
+    }
+
+    .header > input {
+        width: 50%;
+    }
+
+    .events {
+    
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 4em;
+        grid-gap: 4em;
+        overflow: auto;
+    }
+
+    .events > a {
+        width: auto;
+        height: 400px;
+    }
+    
+    .events > a > div {
+        height: 400px
+    }
+
+    .events > a > div > div  {
+        font-size: 25px;
+    }
+
+    .info-section  {
+        font-size: 20px;
+    }
+
+    input::placeholder {
+        font-size: 20px;
+    }
+
+    .nav-bar > form > button {
+        height: 8vw;
+        width: 8vw;
+    
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        background-color: transparent;
+        background-size: cover;
+
+        background-repeat: no-repeat;
+        background-position: center; 
+        background-size: 70%; 
+
+        border: 1px solid #6A8988;
+        border-radius: 8px;
+        
+        font-size: 0px;
+    }
+
+    .nav-bar > form > .home-icon {
+        background-image: url("../img/home.svg");
+    }
+
+    .nav-bar > form > .your-events-icon {
+        background-image: url("../img/events.svg");
+    }
+
+    .nav-bar > form > .add-event-icon {
+        background-image: url("../img/plus.svg");
+    }
+
+    .nav-bar > .default-font {
+        font-size: 0px;
+    }
+
+    .events-container > .flex-center {
+        font-size: 25px;
+    }
+    
+    .events-container > .flex-center > img {
+        width: 70%;
+    }
+
+    .events-container > .flex-center > form > button {
+        height: 50px;
+        width: 10vw;
+    }
+
+    .events-container > form > input,
+    .events-container > form > button {
+        height: 45px;
+        width: 50vw;
+    }
+
+    .events-container > form > button {
+        font-size: 25px;
+    }
 }
