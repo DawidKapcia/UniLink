@@ -43,11 +43,11 @@
                 <div class="flex-center">
                     
                     <?
-                    if(isset($messages)){
-                        foreach($messages as $message) {
-                            echo "<br><p class='warning-box default-font'>".$message."</p><br>";
+                        if(isset($messages)){
+                            foreach($messages as $message) {
+                                echo "<br><p class='warning-box default-font'>".$message."</p><br>";
+                            }
                         }
-                    }
                     ?>
 
                     <img src="public/uploads/<?= $event->getImage(); ?>">
@@ -68,19 +68,19 @@
 
                     <form method="post">
                         <?php
-                        if ($_SESSION['role'] !== 3) {
+                            if ($_SESSION['role'] !== 3) {
 
-                            if (is_null($is_enroled)) {
-                                echo '<button type="submit" class="apply-button default-font" formaction="attend_event?id='.$event->getId().'">ATTEND</button>';
+                                if (is_null($is_enroled)) {
+                                    echo '<button type="submit" class="apply-button default-font" formaction="attend_event?id='.$event->getId().'">ATTEND</button>';
+                                }
+                                else {
+                                    echo '<button type="submit" class="del-button default-font" formaction="cancel_attendance?id='.$event->getId().'">CANCEL</button>';
+                                }
                             }
-                            else {
-                                echo '<button type="submit" class="del-button default-font" formaction="cancel_attendance?id='.$event->getId().'">CANCEL</button>';
-                            }
-                        }
 
-                        if ($_SESSION['role'] === 1) {
-                            echo '<button type="submit" class="del-button default-font" formaction="remove_event?id='.$event->getId().'">REMOVE</button>';
-                        }
+                            if ($_SESSION['role'] === 1) {
+                                echo '<button type="submit" class="del-button default-font" formaction="remove_event?id='.$event->getId().'">REMOVE</button>';
+                            }
                         ?>
                     </form>
                 </div>

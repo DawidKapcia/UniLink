@@ -33,10 +33,10 @@
                 <form class="flex-center">
 
                     <?php
-                    if ($_SESSION['role'] !== 3) {
-                        echo '<button type="submit" class="filled-button default-font add-event-icon" formaction="add_event">ADD EVENT</button>';
-                        echo '<button type="submit" class="filled-button default-font your-events-icon" formaction="your_events">YOUR EVENTS</button>';
-                    }
+                        if ($_SESSION['role'] !== 3) {
+                            echo '<button type="submit" class="filled-button default-font add-event-icon" formaction="add_event">ADD EVENT</button>';
+                            echo '<button type="submit" class="filled-button default-font your-events-icon" formaction="your_events">YOUR EVENTS</button>';
+                        }
                     ?>
 
                     <button type="submit" class="filled-button default-font home-icon" formaction="events">HOMEPAGE</button>
@@ -48,21 +48,21 @@
                 <div class="events">
                     <?php foreach ($events as $event):?>
                     
-                    <a href="event_details?id=<?=$event->getId();?>">
-                        <div id="<?=$event->getId();?>">
-                            <img src="public/uploads/<?= $event->getImage(); ?>">
-                            <div>
-                                <h3 class="default-font bold" style="color: black;"><?= $event->getTitle(); ?></h3>
-                                <p class="default-font bold" style="color: black;"><?= $event->getAddress().", ".$event->getZip()." ".$event->getCity(); ?></p>
-                                <br>
+                        <a href="event_details?id=<?=$event->getId();?>">
+                            <div id="<?=$event->getId();?>">
+                                <img src="public/uploads/<?= $event->getImage(); ?>">
+                                <div>
+                                    <h3 class="default-font bold" style="color: black;"><?= $event->getTitle(); ?></h3>
+                                    <p class="default-font bold" style="color: black;"><?= $event->getAddress().", ".$event->getZip()." ".$event->getCity(); ?></p>
+                                    <br>
 
-                                <div class="info-section">
-                                    <i class="fa-solid fa-calendar-days" style="color: black;"><?= $event->getDate()." ".$event->getHour(); ?></i>
-                                    <i class="fa-solid fa-user" style="color: black;"><?= $event->getEnroled()."/".$event->getSlots(); ?></i>
+                                    <div class="info-section">
+                                        <i class="fa-solid fa-calendar-days" style="color: black;"><?= $event->getDate()." ".$event->getHour(); ?></i>
+                                        <i class="fa-solid fa-user" style="color: black;"><?= $event->getEnroled()."/".$event->getSlots(); ?></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
                     <?php endforeach; ?>
                 </div>
             </div>

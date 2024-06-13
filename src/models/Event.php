@@ -126,4 +126,9 @@ class Event {
     {
         return $this->enroled;
     } 
+    
+    public function setEnroled()
+    {
+        $this->enroled = $enroled;
+    } 
 }
