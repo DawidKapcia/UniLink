@@ -113,4 +113,5 @@ Here are some screenshots from the website.
 ![Log In](./screens/login.png)
 ![Events](./screens/events.png)
 ![Add a new event](./screens/add_event.png)
+![View event details](./screens/attend.png)
 
