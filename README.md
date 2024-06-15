@@ -5,7 +5,7 @@
 ## Table of contents
 
 * [About website](#about-website)
-* [Technologies Used](#technologies-used)
+* [Technologies used](#technologies-used)
 * [Features](#features)
 * [Roles](#roles)
 * [Database](#database)
@@ -17,7 +17,7 @@
 
 This application is designed to help students discover exciting events in their local area. Targeting exclusively students enhances the app's security and focuses its audience on a similar age group. Users can both apply to attend events and create their own, fostering connections with like-minded groups who share similar interests.
 
-## Technologies Used
+## Technologies used
 
 ### Front-end
 
